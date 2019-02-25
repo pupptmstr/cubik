@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class Cubik {
 
-
+    //TODO() спросить как связать тело и отдельные грани между собой, чтобы изменения в одном изменяли другое
     /** Хранение состояния кубика.
      *
      *   s
@@ -116,15 +116,41 @@ public class Cubik {
     }
 
     public static void movePart(int row) {
-        //TODO()
+        ArrayList<Integer> buffer = new ArrayList<>(bottomSide.get(row - 1));
+        bottomSide.set(row - 1, sideD.get(row - 1));
+        sideD.set(row - 1, topSide.get(size - row - 1));
+        topSide.set(size - row - 1, sideB.get(row - 1));
+        sideB.set(row - 1, buffer);
+        if (row == (size - 1)) {
+            moveSideByCircle(sideA);
+        }
+        if (row - 1 == 0) {
+            moveSideByCircle(sideC);
+        }
     }
 
     public static void movePart(int row, boolean isVertical) {
-        //TODO()
-    }
+        if (isVertical) {
+            ArrayList<Integer> buffer = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                buffer.add(bottomSide.get(i).get(size - 1));
+            }
 
-    public static void movePart() {
-        //TODO()
+            for (int i = 0; i < size; i++) {
+                bottomSide.get(i).set(row - 1, sideA.get(i).get(row - 1));
+                sideA.get(i).set(row - 1, topSide.get(i).get(row - 1));
+                topSide.get(i).set(row - 1, sideC.get(i).get(row - 1));
+                sideC.get(i).set(row - 1, buffer.get(i));
+            }
+
+            if (row == (size - 1)) {
+                moveSideByCircle(sideB);
+            }
+            if (row - 1 == 0) {
+                moveSideByCircle(sideD);
+            }
+        }
+
     }
 
     private static void moveSideByCircle(ArrayList<ArrayList<Integer>> list) {
