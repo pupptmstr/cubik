@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82ab618c-e852-418f-924c-1ac5a0a6bfb7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Side.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Cubik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Cubik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/pupptmstr/cubik/TestCubik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/pupptmstr/cubik/TestCubik.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -55,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+            <state relative-caret-position="135">
+              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -64,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/pupptmstr/cubik/TestCubik.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="65" selection-start-line="65" selection-end-line="65" />
+            <state relative-caret-position="15">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -73,32 +79,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Main.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Cubik.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+            <state relative-caret-position="1065">
+              <caret line="131" column="44" lean-forward="true" selection-start-line="131" selection-start-column="8" selection-end-line="131" selection-end-column="44" />
+              <folding>
+                <element signature="method#Cubik#0;class#Cubik#0" />
+                <element signature="method#Cubik#1;class#Cubik#0" />
+                <element signature="method#movePart#0;class#Cubik#0" />
+                <element signature="method#movePart#1;class#Cubik#0" />
+                <element signature="method#shufle#0;class#Cubik#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Cubik.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Side.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+            <state relative-caret-position="51">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
               <folding>
-                <element signature="method#Cubik#0;class#Cubik#0" />
-                <element signature="method#Cubik#1;class#Cubik#0" />
-                <element signature="method#create#0;class#Cubik#0" />
-                <element signature="method#init#0;class#Cubik#0" />
-                <element signature="method#moveSideByCircle#0;class#Cubik#0" />
-                <element signature="method#moveSideByCircle#1;class#Cubik#0" />
-                <element signature="method#turnCubik#0;class#Cubik#0" />
-                <element signature="method#turnCubik#1;class#Cubik#0" />
-                <element signature="method#turnCubik#2;class#Cubik#0" />
-                <element signature="method#lookAtSide#0;class#Cubik#0" />
-                <element signature="e#9236#9237#0" expanded="true" />
+                <element signature="method#moveSideByCircle#1;class#Side#0" />
               </folding>
             </state>
           </provider>
@@ -116,6 +119,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>3</find>
+      <find>static</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,11 +128,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/test/java/com/pupptmstr/cubik/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Main.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/pupptmstr/cubik/TestCubik.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Main.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Cubik.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Side.java" />
       </list>
     </option>
   </component>
@@ -150,19 +155,45 @@
               <item name="cubik" type="b2602c69:ProjectViewProjectNode" />
               <item name="cubik" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
+            <path>
+              <item name="cubik" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cubik" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cubik" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cubik" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="cubik" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cubik" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cubik" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cubik" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cubik" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551080007749" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551859321465" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Bots/tgBotTest" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -180,7 +211,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.cubik [clean]">
+  <component name="RunManager" selected="JUnit.TestCubik.turnCubik">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.pupptmstr.cubik.Main" />
       <module name="com.pupptmstr.cubik.main" />
@@ -228,6 +259,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestCubik.toStringTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="com.pupptmstr.cubik.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pupptmstr.cubik.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pupptmstr.cubik" />
+      <option name="MAIN_CLASS_NAME" value="com.pupptmstr.cubik.TestCubik" />
+      <option name="METHOD_NAME" value="toStringTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestCubik.turnCubik" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="com.pupptmstr.cubik.test" />
       <extension name="coverage">
@@ -244,29 +291,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCubik.turnCubikVertical" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="com.pupptmstr.cubik.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.pupptmstr.cubik.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.pupptmstr.cubik" />
-      <option name="MAIN_CLASS_NAME" value="com.pupptmstr.cubik.TestCubik" />
-      <option name="METHOD_NAME" value="turnCubikVertical" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.cubik [clean]" />
-        <item itemvalue="JUnit.TestCubik" />
-        <item itemvalue="JUnit.TestCubik.turnCubikVertical" />
         <item itemvalue="JUnit.TestCubik.turnCubik" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.TestCubik.toStringTest" />
+        <item itemvalue="Gradle.cubik [clean]" />
+        <item itemvalue="JUnit.TestCubik" />
       </list>
     </recent_temporary>
   </component>
@@ -287,50 +318,87 @@
       <workItem from="1550647434030" duration="7053000" />
       <workItem from="1550668048056" duration="71000" />
       <workItem from="1550855234144" duration="4107000" />
-      <workItem from="1550929714610" duration="18682000" />
+      <workItem from="1550929714610" duration="20861000" />
+      <workItem from="1551539899435" duration="2795000" />
+      <workItem from="1551620414237" duration="12071000" />
+      <workItem from="1551811564671" duration="8000" />
+      <workItem from="1551856165934" duration="3154000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestCubik_turnCubik - 2019.02.24 at 19h 02m 56s.xml">
+    <history-entry file="TestCubik_turnCubik - 2019.03.04 at 03h 08m 23s.xml">
       <configuration name="TestCubik.turnCubik" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCubik_turnCubik - 2019.02.24 at 19h 03m 00s.xml">
+    <history-entry file="TestCubik_turnCubik - 2019.03.04 at 03h 11m 04s.xml">
       <configuration name="TestCubik.turnCubik" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCubik_turnCubik - 2019.02.24 at 19h 04m 49s.xml">
+    <history-entry file="TestCubik_turnCubik - 2019.03.06 at 10h 19m 31s.xml">
       <configuration name="TestCubik.turnCubik" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCubik_turnCubik - 2019.02.24 at 19h 10m 39s.xml">
+    <history-entry file="TestCubik_turnCubik - 2019.03.06 at 10h 21m 21s.xml">
       <configuration name="TestCubik.turnCubik" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCubik - 2019.02.24 at 19h 12m 10s.xml">
-      <configuration name="TestCubik" configurationId="JUnit" />
+    <history-entry file="TestCubik_turnCubik - 2019.03.06 at 10h 24m 52s.xml">
+      <configuration name="TestCubik.turnCubik" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCubik_turnCubikVertical - 2019.02.24 at 19h 14m 15s.xml">
-      <configuration name="TestCubik.turnCubikVertical" configurationId="JUnit" />
+    <history-entry file="TestCubik_turnCubik - 2019.03.06 at 10h 32m 59s.xml">
+      <configuration name="TestCubik.turnCubik" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCubik_turnCubikVertical - 2019.02.24 at 19h 15m 37s.xml">
-      <configuration name="TestCubik.turnCubikVertical" configurationId="JUnit" />
+    <history-entry file="TestCubik_turnCubik - 2019.03.06 at 10h 42m 25s.xml">
+      <configuration name="TestCubik.turnCubik" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCubik_turnCubikVertical - 2019.02.24 at 19h 17m 11s.xml">
-      <configuration name="TestCubik.turnCubikVertical" configurationId="JUnit" />
+    <history-entry file="TestCubik_turnCubik - 2019.03.06 at 10h 46m 42s.xml">
+      <configuration name="TestCubik.turnCubik" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCubik_turnCubikVertical - 2019.02.24 at 19h 18m 13s.xml">
-      <configuration name="TestCubik.turnCubikVertical" configurationId="JUnit" />
+    <history-entry file="TestCubik_turnCubik - 2019.03.06 at 10h 59m 31s.xml">
+      <configuration name="TestCubik.turnCubik" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCubik - 2019.02.24 at 19h 18m 23s.xml">
-      <configuration name="TestCubik" configurationId="JUnit" />
+    <history-entry file="TestCubik_turnCubik - 2019.03.06 at 10h 59m 42s.xml">
+      <configuration name="TestCubik.turnCubik" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44564000" />
+    <option name="totallyTimeSpent" value="64771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1366" height="693" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13636364" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20075758" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.7064057" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.71352315" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32978722" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.6761566" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.3291815" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Gradle" order="6" weight="0.16060606" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13863637" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -358,11 +426,11 @@
       <window_info anchor="right" id="Maven" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Gradle" order="6" visible="true" weight="0.16060606" />
+      <window_info anchor="right" id="Gradle" order="6" weight="0.16060606" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -370,64 +438,141 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Cubik.java</url>
+          <line>129</line>
+          <properties class="com.pupptmstr.cubik.Cubik" method="turnCubik">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Side.java</url>
+          <line>21</line>
+          <properties class="com.pupptmstr.cubik.Side" method="getSide">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Side.java</url>
+          <line>34</line>
+          <properties class="com.pupptmstr.cubik.Side" method="setSide">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Cubik.java</url>
-          <line>61</line>
+          <line>130</line>
           <properties />
-          <option name="timeStamp" value="14" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Cubik.java</url>
+          <line>131</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Cubik.java</url>
+          <line>134</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Cubik.java</url>
+          <line>138</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Cubik.java</url>
+          <line>141</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Cubik.java</url>
+          <line>143</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Cubik.java</url>
+          <line>144</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Side.java</url>
+          <line>23</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Side.java</url>
+          <line>35</line>
+          <properties />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/fuck/Huy.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Main.java" />
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+        <state relative-caret-position="135">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/util/ArrayList.class">
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/lang/Object.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="195" column="13" selection-start-line="195" selection-start-column="13" selection-end-line="195" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+        <state relative-caret-position="-32">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/pupptmstr/cubik/TestCubik.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        <state relative-caret-position="15">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Side.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="method#moveSideByCircle#1;class#Side#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/util/ArrayList.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="160" column="48" selection-start-line="160" selection-start-column="48" selection-end-line="160" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/pupptmstr/cubik/Cubik.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        <state relative-caret-position="1065">
+          <caret line="131" column="44" lean-forward="true" selection-start-line="131" selection-start-column="8" selection-end-line="131" selection-end-column="44" />
           <folding>
             <element signature="method#Cubik#0;class#Cubik#0" />
             <element signature="method#Cubik#1;class#Cubik#0" />
-            <element signature="method#create#0;class#Cubik#0" />
-            <element signature="method#init#0;class#Cubik#0" />
-            <element signature="method#moveSideByCircle#0;class#Cubik#0" />
-            <element signature="method#moveSideByCircle#1;class#Cubik#0" />
-            <element signature="method#turnCubik#0;class#Cubik#0" />
-            <element signature="method#turnCubik#1;class#Cubik#0" />
-            <element signature="method#turnCubik#2;class#Cubik#0" />
-            <element signature="method#lookAtSide#0;class#Cubik#0" />
-            <element signature="e#9236#9237#0" expanded="true" />
+            <element signature="method#movePart#0;class#Cubik#0" />
+            <element signature="method#movePart#1;class#Cubik#0" />
+            <element signature="method#shufle#0;class#Cubik#0" />
           </folding>
         </state>
       </provider>

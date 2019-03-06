@@ -45,7 +45,7 @@ public class TestCubik {
                 cubik.toString()
         );
     }
-
+/*
     @Test
     public  void  turnCubikVertical() {
         Cubik cubik = new Cubik(3);
@@ -64,7 +64,7 @@ public class TestCubik {
                 "           [0, 0, 0]\n\n",
                 cubik.toString());
 
-    }
+    }*/
 
     //TODO() написать на все таски тесты
 

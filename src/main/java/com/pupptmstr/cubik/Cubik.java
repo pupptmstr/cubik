@@ -20,7 +20,6 @@ import java.util.ArrayList;
 
 public class Cubik {
 
-    //TODO() спросить как связать тело и отдельные грани между собой, чтобы изменения в одном изменяли другое
     /** Хранение состояния кубика.
      *
      *   s
@@ -47,156 +46,108 @@ public class Cubik {
      * faceSide - side that look at player now
      *
      * */
-    private static int size;
-    private static ArrayList<ArrayList<Integer>> sideC = new ArrayList<>();
-    private static ArrayList<ArrayList<Integer>> sideD = new ArrayList<>();
-    private static ArrayList<ArrayList<Integer>> bottomSide = new ArrayList<>();
-    private static ArrayList<ArrayList<Integer>> sideB = new ArrayList<>();
-    private static ArrayList<ArrayList<Integer>> sideA = new ArrayList<>();
-    private static ArrayList<ArrayList<Integer>> topSide = new ArrayList<>();
-    private static ArrayList<ArrayList<ArrayList<Integer>>> body= new ArrayList<>();
+    private int size;
+    private Side sideC;
+    private Side sideD;
+    private Side bottomSide;
+    private Side sideB;
+    private Side sideA;
+    private Side topSide;
+    private ArrayList<Side> body= new ArrayList<>();
 
     //Создается кубик, заполняющийся интами 0..5
     //Лицевой(повернутой к нам стороной) по дефолту считается bottomSize
     Cubik(int size) {
         this.size = size;
-        create();
-        init();
-    }
-
-    Cubik(int size, boolean random) {
-        this.size = size;
-        create();
-        init();
-
-        if (random) {
-            shufle();
-        }
-    }
-
-    //Создание тела кубика и инициализация его цветов
-    private static void create() {
-
-        for (int j = 0; j < size; j++) {
-            ArrayList<Integer> line = new ArrayList<>();
-            for (int k = 0; k < size; k++) {
-                line.add(0);
-            }
-            sideC.add(line);
-            sideD.add(line);
-            bottomSide.add(line);
-            sideB.add(line);
-            sideA.add(line);
-            topSide.add(line);
-        }
+        sideC = new Side(size, 0);
+        sideD = new Side(size, 1);
+        bottomSide = new Side(size, 2);
+        sideB = new Side(size, 3);
+        sideA = new Side(size, 4);
+        topSide = new Side(size, 5);
         body.add(sideC);
         body.add(sideD);
         body.add(bottomSide);
         body.add(sideB);
         body.add(sideA);
         body.add(topSide);
+
     }
 
-    private static void init() {
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < size; j++) {
-                ArrayList<Integer> line = new ArrayList<>();
-                for (int k = 0; k < size; k++) {
-                    line.add(i);
-                }
-                body.get(i).set(j, line);
-            }
+    Cubik(int size, boolean random) {
+        this.size = size;
+        sideC = new Side(size, 0);
+        sideD = new Side(size, 1);
+        bottomSide = new Side(size, 2);
+        sideB = new Side(size, 3);
+        sideA = new Side(size, 4);
+        topSide = new Side(size, 5);
+        body.add(sideC);
+        body.add(sideD);
+        body.add(bottomSide);
+        body.add(sideB);
+        body.add(sideA);
+        body.add(topSide);
+        if (random) {
+            shufle();
         }
-        sideC = body.get(0);
-        sideD = body.get(1);
-        bottomSide = body.get(2);
-        sideB = body.get(3);
-        sideA = body.get(4);
-        topSide = body.get(5);
     }
 
-    public static void movePart(int row) {
-        ArrayList<Integer> buffer = new ArrayList<>(bottomSide.get(row - 1));
-        bottomSide.set(row - 1, sideD.get(row - 1));
-        sideD.set(row - 1, topSide.get(size - row - 1));
-        topSide.set(size - row - 1, sideB.get(row - 1));
-        sideB.set(row - 1, buffer);
+    public void movePart(int row) {
+        ArrayList<Integer> buffer = new ArrayList<>(bottomSide.getLine(false, row));
+        bottomSide.setLine(false, row, sideD.getLine(false, row));
+        sideD.setLine(false, row, topSide.getLine(false, size - row));
+        topSide.setLine(false, size - row, sideB.getLine(false, row));
+        sideB.setLine(false, row, buffer);
         if (row == (size - 1)) {
-            moveSideByCircle(sideA);
+            sideA.moveSideByCircle();
         }
         if (row - 1 == 0) {
-            moveSideByCircle(sideC);
+            sideC.moveSideByCircle(true);
         }
     }
 
-    public static void movePart(int row, boolean isVertical) {
+    public void movePart(int row, boolean isVertical) {
         if (isVertical) {
-            ArrayList<Integer> buffer = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
-                buffer.add(bottomSide.get(i).get(size - 1));
-            }
-
-            for (int i = 0; i < size; i++) {
-                bottomSide.get(i).set(row - 1, sideA.get(i).get(row - 1));
-                sideA.get(i).set(row - 1, topSide.get(i).get(row - 1));
-                topSide.get(i).set(row - 1, sideC.get(i).get(row - 1));
-                sideC.get(i).set(row - 1, buffer.get(i));
-            }
+            ArrayList<Integer> buffer = new ArrayList<>(bottomSide.getLine(true, row));
+            bottomSide.setLine(true, row, sideA.getLine(true, row));
+            sideA.setLine(true, row, topSide.getLine(true, row));
+            topSide.setLine(true, row, sideC.getLine(true, row));
+            sideC.setLine(true, row, buffer);
 
             if (row == (size - 1)) {
-                moveSideByCircle(sideB);
+                sideB.moveSideByCircle();
             }
             if (row - 1 == 0) {
-                moveSideByCircle(sideD);
+                sideD.moveSideByCircle(true);
             }
         }
-
-    }
-
-    private static void moveSideByCircle(ArrayList<ArrayList<Integer>> list) {
-        ArrayList<ArrayList<Integer>> bufferr = (ArrayList<ArrayList<Integer>>) list.clone();
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                list.get(j).set((size - (i+1)), bufferr.get(i).get(j));
-            }
-        }
-    }
-
-    private static void moveSideByCircle(boolean isCounterclockwise, ArrayList<ArrayList<Integer>> list) {
-        if (isCounterclockwise) {
-            ArrayList<ArrayList<Integer>> bufferr = (ArrayList<ArrayList<Integer>>) list.clone();
-            for (int i = 0; i < size; i++) {
-                for (int j = 0; j < size; j++) {
-                    list.get(size - (j+1)).set(i, bufferr.get(i).get(j));
-                }
-            }
-        } else moveSideByCircle(list);
 
     }
 
     //по умолчанию - поворот кубика осуществляется горизонтально движением руки от себя(вправо)
     //(против часовой стрелки)
-    public static void turnCubik() {
-        ArrayList<ArrayList<Integer>> buffer = new ArrayList<>(bottomSide);
-        bottomSide = (ArrayList<ArrayList<Integer>>) sideD.clone();
+    public void turnCubik() {
+        ArrayList<ArrayList<Integer>> buffer = new ArrayList<>(bottomSide.getSide());
+        bottomSide.setSide(sideD.getSide());
 
         for (int i = 0; i < size; i++) {
-            sideD.set(i, topSide.get(topSide.size()-(i+1)));
+            sideD.setLine(false, i + 1, topSide.getLine(false, size - i));
         }
 
         for (int i = 0; i < size; i++) {
-            topSide.set(i, sideB.get(sideB.size() - (i+1)));
+            topSide.setLine(false, i + 1, sideB.getLine(false, size - i));
         }
 
-        sideB = (ArrayList<ArrayList<Integer>>) buffer.clone();
+        sideB.setSide(buffer);
 
-        moveSideByCircle(true, sideC);
-        moveSideByCircle(sideA);
+        sideC.moveSideByCircle(true);
+        sideA.moveSideByCircle();
     }
 
-    //параметр isVertical меняет ось вращения на вертикальную, но поворот все равно движением руки от себя
+    /*//параметр isVertical меняет ось вращения на вертикальную, но поворот все равно движением руки от себя
     //(лицевая сторона оказывается сверху)
-    public static void turnCubik(boolean isVertical) {
+    public void turnCubik(boolean isVertical) {
         if (isVertical) {
             ArrayList<ArrayList<Integer>> buffer = (ArrayList<ArrayList<Integer>>) bottomSide.clone();
             bottomSide = (ArrayList<ArrayList<Integer>>) sideA.clone();
@@ -211,7 +162,7 @@ public class Cubik {
 
     //параметр isUntoYourself меняет направление движения руки -> если движение горизонтально, то
     //лицевая сторона оказывается слева, а если вертикально, то снизу
-    public static void turnCubik(boolean isVertical, boolean isUntoYourself) {
+    public void turnCubik(boolean isVertical, boolean isUntoYourself) {
         if (isUntoYourself) {
             if (isVertical){
                ArrayList<ArrayList<Integer>> buffer = (ArrayList<ArrayList<Integer>>) bottomSide.clone();
@@ -237,24 +188,19 @@ public class Cubik {
         } else turnCubik(isVertical);
     }
 
-    public static void shufle() {
+*/
+    public void shufle() {
 
     }
 
-    public static String lookAtSide() {
-        body.set(0, sideC);
-        body.set(1, sideD);
-        body.set(2, bottomSide);
-        body.set(3, sideB);
-        body.set(4, sideA);
-        body.set(5, topSide);
+    public String lookAtSide() {
         StringBuilder builder = new StringBuilder();
         int i = 0;
         while (i  < 6) {
             if (i == 1) {
                 for (int j = 0; j < size; j++) {
                     for (int k = 0; k < 3; k++) {
-                        builder.append(" ").append(body.get(i + k).get(j));
+                        builder.append(" ").append(body.get(i + k).getLine(false, j + 1));
                     }
                     builder.append("\n");
                 }
@@ -262,7 +208,7 @@ public class Cubik {
                 builder.append("\n");
             } else {
                 for (int j = 0; j < size; j++) {
-                    builder.append("           ").append(body.get(i).get(j)).append("\n");
+                    builder.append("           ").append(body.get(i).getLine(false, j + 1)).append("\n");
                 }
                 builder.append("\n");
                 i++;
