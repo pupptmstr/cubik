@@ -20,8 +20,7 @@ public class Side {
     }
 
     public ArrayList<ArrayList<Integer>> getSide() {
-        ArrayList<ArrayList<Integer>> res = (ArrayList<ArrayList<Integer>>) side.clone();
-        return res;
+        return new ArrayList<>(side);
     }
 
     private void init(int num) {
@@ -32,8 +31,18 @@ public class Side {
         }
     }
 
+    public void testInit() {
+        int num = 0;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                side.get(i).set(j, num);
+                num++;
+            }
+        }
+    }
+
     public void setSide(ArrayList<ArrayList<Integer>> newSide) {
-        side =(ArrayList<ArrayList<Integer>>) newSide.clone();
+        side = new ArrayList<>(newSide);
     }
 
     //отсчет сверху вниз с еденицы
@@ -62,12 +71,14 @@ public class Side {
         }
     }
 
+    /**http://redgears.ru/%D0%BF%D0%BE%D0%B2%D0%BE%D1%80%D0%BE%D1%82-%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%86%D1%8B-%D0%BD%D0%B0-90%C2%B0-%D0%B3%D1%80%D0%B0%D0%B4%D1%83%D1%81%D0%BE%D0%B2/
+     * */
     //по часовой стрелке
     public void moveSideByCircle() {
-        ArrayList<ArrayList<Integer>> bufferr = (ArrayList<ArrayList<Integer>>) side.clone();
+        ArrayList<ArrayList<Integer>> buffer = new ArrayList<>(side);
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                side.get(j).set((size - (i+1)), bufferr.get(i).get(j));
+                side.get(j).set((size - i - 1), buffer.get(i).get(j));
             }
         }
     }
@@ -75,14 +86,25 @@ public class Side {
     //против
     public void moveSideByCircle(boolean isCounterclockwise) {
         if (isCounterclockwise) {
-            ArrayList<ArrayList<Integer>> bufferr = (ArrayList<ArrayList<Integer>>) side.clone();
+            ArrayList<ArrayList<Integer>> buffer = new ArrayList<>(side);
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
-                    side.get(size - (j+1)).set(i, bufferr.get(i).get(j));
+                    side.get(size - (j+1)).set(i, buffer.get(i).get(j));
                 }
             }
         } else moveSideByCircle();
 
+    }
+
+    public String toString() {
+        StringBuilder bldr = new StringBuilder();
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                bldr.append(side.get(i).get(j)).append(" ");
+            }
+            bldr.append("\n");
+        }
+        return bldr.toString();
     }
 
 
