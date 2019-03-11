@@ -60,6 +60,9 @@ public class TestCubik {
         Side side = new Side(3, 0);
         side.testInit();
         side.moveSideByCircle(true);
+        assertEquals("2 5 8 \n" +
+                "1 4 7 \n" +
+                "0 3 6 \n", side.toString());
     }
 
     @Test

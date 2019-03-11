@@ -26,21 +26,21 @@ public class Cubik {
      *   s
      *   i
      *   d   000
-     *   e   000 <-sideC
+     *   e   000 <-top
      *   D   000
      *   |
      *  111  222  333
      *  111  222  333 <- sideB
      *  111  222  333
      *       |
-     * bottomSide
+     *       sideA
      *
      *       444
-     *       444 <- sideA
+     *       444 <- bottom
      *       444
      *
      *       555
-     *       555 <- topSide
+     *       555 <- sideC
      *       555
      *
      * Every number(from 0 to 5) means Color
@@ -97,8 +97,8 @@ public class Cubik {
     public void moveLine(int row) {
         ArrayList<Integer> buffer = new ArrayList<>(bottomSide.getLine(false, row));
         bottomSide.setLine(false, row, sideD.getLine(false, row));
-        sideD.setLine(false, row, topSide.getLine(false, size - row));
-        topSide.setLine(false, size - row, sideB.getLine(false, row));
+        sideD.setLine(false, row, topSide.getLine(false, size - row + 1));
+        topSide.setLine(false, size - row, sideB.getLine(false, row + 1));
         sideB.setLine(false, row, buffer);
         if (row == (size - 1)) {
             sideA.moveSideByCircle();
@@ -137,10 +137,11 @@ public class Cubik {
     //(против часовой стрелки)
     public void turnCubik() {
         ArrayList<ArrayList<Integer>> buffer = new ArrayList<>(bottomSide.getSide());
+
         bottomSide.setSide(sideD.getSide());
 
         for (int i = 0; i < size; i++) {
-            sideD.setLine(false, i + 1, topSide.getLine(false, size - i));
+            sideD.setLine(false, i + 1, new ArrayList<>(topSide.getLine(false, size - i)));
         }
 
         for (int i = 0; i < size; i++) {
