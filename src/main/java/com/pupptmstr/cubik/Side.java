@@ -1,6 +1,7 @@
 package com.pupptmstr.cubik;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Side {
 
@@ -81,31 +82,21 @@ public class Side {
 
     //по часовой стрелке
     public void moveSideByCircle() {
-        int tmp;
-        for (int i = 0; i < (size / 2); i++) {
-            for (int j = 1; j < (size - 1 - i); j++) {
-                tmp = side.get(i).get(j);
-                side.get(i).set(j, side.get(size - j - 1).get(i));
-                side.get(size - j - 1).set(i, side.get(size - i - 1).get(size - j - 1));
-                side.get(size - i - 1).set(size - j - 1, side.get(j).get(size - i - 1));
-                side.get(j).set(size - i - 1, tmp);
-            }
-        }
+        Side buffer = new Side(3, 0);
+        buffer.setSide(getSide());
+        setLine(true, 3, buffer.getLine(false, 1));
+        setLine(true, 2, buffer.getLine(false, 2));
+        setLine(true, 1, buffer.getLine(false, 3));
     }
 
     //против
     public void moveSideByCircle(boolean isCounterclockwise) {
+        Side buffer = new Side(3, 0);
+        buffer.setSide(getSide());
         if (isCounterclockwise) {
-            int tmp;
-            for (int i = 0; i < (size / 2); i++) {
-                for (int j = 1; j < (size - 1 - i); j++) {
-                    tmp = side.get(i).get(j);
-                    side.get(i).set(j, side.get(j).get(size - j - 1));
-                    side.get(j).set(size - j - 1, side.get(size - i - 1).get(size - j - 1));
-                    side.get(size - i - 1).set(size - j - 1, side.get(size - 1 - j).get(i));
-                    side.get(size - j - 1).set(i, tmp);
-                }
-            }
+            moveSideByCircle();
+            moveSideByCircle();
+            moveSideByCircle();
         } else moveSideByCircle();
 
     }

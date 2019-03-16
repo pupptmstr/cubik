@@ -27,20 +27,20 @@ public class Cubik {
      *   i
      *   d   000
      *   e   000 <-top
-     *   D   000
+     *   A   000
      *   |
      *  111  222  333
-     *  111  222  333 <- sideB
+     *  111  222  333 <- sideC
      *  111  222  333
      *       |
-     *       sideA
+     *       sideB
      *
      *       444
      *       444 <- bottom
      *       444
      *
      *       555
-     *       555 <- sideC
+     *       555 <- sideD
      *       555
      *
      * Every number(from 0 to 5) means Color
@@ -48,79 +48,79 @@ public class Cubik {
      *
      * */
     private int size;
-    private Side sideC;
-    private Side sideD;
-    private Side bottomSide;
-    private Side sideB;
+    private Side top;
     private Side sideA;
-    private Side topSide;
+    private Side sideB;
+    private Side sideC;
+    private Side bottom;
+    private Side sideD;
     private ArrayList<Side> body= new ArrayList<>();
 
     //Создается кубик, заполняющийся интами 0..5
     //Лицевой(повернутой к нам стороной) по дефолту считается bottomSize
     Cubik(int size) {
         this.size = size;
-        sideC = new Side(size, 0);
-        sideD = new Side(size, 1);
-        bottomSide = new Side(size, 2);
-        sideB = new Side(size, 3);
-        sideA = new Side(size, 4);
-        topSide = new Side(size, 5);
-        body.add(sideC);
-        body.add(sideD);
-        body.add(bottomSide);
-        body.add(sideB);
+        top = new Side(size, 0);
+        sideA = new Side(size, 1);
+        sideB = new Side(size, 2);
+        sideC = new Side(size, 3);
+        bottom = new Side(size, 4);
+        sideD = new Side(size, 5);
+        body.add(top);
         body.add(sideA);
-        body.add(topSide);
+        body.add(sideB);
+        body.add(sideC);
+        body.add(bottom);
+        body.add(sideD);
 
     }
 
     Cubik(int size, boolean random) {
         this.size = size;
-        sideC = new Side(size, 0);
-        sideD = new Side(size, 1);
-        bottomSide = new Side(size, 2);
-        sideB = new Side(size, 3);
-        sideA = new Side(size, 4);
-        topSide = new Side(size, 5);
-        body.add(sideC);
-        body.add(sideD);
-        body.add(bottomSide);
-        body.add(sideB);
+        top = new Side(size, 0);
+        sideA = new Side(size, 1);
+        sideB = new Side(size, 2);
+        sideC = new Side(size, 3);
+        bottom = new Side(size, 4);
+        sideD = new Side(size, 5);
+        body.add(top);
         body.add(sideA);
-        body.add(topSide);
+        body.add(sideB);
+        body.add(sideC);
+        body.add(bottom);
+        body.add(sideD);
         if (random) {
             shufle();
         }
     }
 
     public void moveLine(int row) {
-        ArrayList<Integer> buffer = new ArrayList<>(bottomSide.getLine(false, row));
-        bottomSide.setLine(false, row, sideD.getLine(false, row));
-        sideD.setLine(false, row, topSide.getLine(false, size - row + 1));
-        topSide.setLine(false, size - row, sideB.getLine(false, row + 1));
-        sideB.setLine(false, row, buffer);
+        ArrayList<Integer> buffer = new ArrayList<>(sideB.getLine(false, row));
+        sideB.setLine(false, row, sideA.getLine(false, row));
+        sideA.setLine(false, row, sideD.getLine(false, size - row + 1));
+        sideD.setLine(false, size - row + 1, sideC.getLine(false, row));
+        sideC.setLine(false, row, buffer);
         if (row == (size - 1)) {
-            sideA.moveSideByCircle();
+            bottom.moveSideByCircle();
         }
         if (row - 1 == 0) {
-            sideC.moveSideByCircle(true);
+            top.moveSideByCircle(true);
         }
     }
 
     public void moveLine(int row, boolean isVertical) {
         if (isVertical) {
-            ArrayList<Integer> buffer = new ArrayList<>(bottomSide.getLine(true, row));
-            bottomSide.setLine(true, row, sideA.getLine(true, row));
-            sideA.setLine(true, row, topSide.getLine(true, row));
-            topSide.setLine(true, row, sideC.getLine(true, row));
-            sideC.setLine(true, row, buffer);
+            ArrayList<Integer> buffer = new ArrayList<>(sideB.getLine(true, row));
+            sideB.setLine(true, row, bottom.getLine(true, row));
+            bottom.setLine(true, row, sideD.getLine(true, row));
+            sideD.setLine(true, row, top.getLine(true, row));
+            top.setLine(true, row, buffer);
 
             if (row == (size - 1)) {
-                sideB.moveSideByCircle();
+                sideC.moveSideByCircle();
             }
             if (row - 1 == 0) {
-                sideD.moveSideByCircle(true);
+                sideA.moveSideByCircle(true);
             }
         }
     }
@@ -136,35 +136,35 @@ public class Cubik {
     //по умолчанию - поворот кубика осуществляется горизонтально движением руки от себя(вправо)
     //(против часовой стрелки)
     public void turnCubik() {
-        ArrayList<ArrayList<Integer>> buffer = new ArrayList<>(bottomSide.getSide());
+        ArrayList<ArrayList<Integer>> buffer = new ArrayList<>(sideB.getSide());
 
-        bottomSide.setSide(sideD.getSide());
+        sideB.setSide(sideA.getSide());
 
         for (int i = 0; i < size; i++) {
-            sideD.setLine(false, i + 1, new ArrayList<>(topSide.getLine(false, size - i)));
+            sideA.setLine(false, i + 1, new ArrayList<>(sideD.getLine(false, size - i)));
         }
 
         for (int i = 0; i < size; i++) {
-            topSide.setLine(false, i + 1, sideB.getLine(false, size - i));
+            sideD.setLine(false, i + 1, sideC.getLine(false, size - i));
         }
 
-        sideB.setSide(buffer);
+        sideC.setSide(buffer);
 
-        sideC.moveSideByCircle(true);
-        sideA.moveSideByCircle();
+        top.moveSideByCircle(true);
+        bottom.moveSideByCircle();
     }
 
     //параметр isVertical меняет ось вращения на вертикальную, но поворот все равно движением руки от себя
     //(лицевая сторона оказывается сверху)
     public void turnCubik(boolean isVertical) {
         if (isVertical) {
-            ArrayList<ArrayList<Integer>> buffer = new ArrayList<>(bottomSide.getSide());
-            bottomSide.setSide(sideA.getSide());
-            sideA.setSide(topSide.getSide());
-            topSide.setSide(sideC.getSide());
-            sideC.setSide(buffer);
-            sideB.moveSideByCircle();
-            sideD.moveSideByCircle(true);
+            ArrayList<ArrayList<Integer>> buffer = new ArrayList<>(sideB.getSide());
+            sideB.setSide(bottom.getSide());
+            bottom.setSide(sideD.getSide());
+            sideD.setSide(top.getSide());
+            top.setSide(buffer);
+            sideC.moveSideByCircle();
+            sideA.moveSideByCircle(true);
 
         } else turnCubik();
     }
@@ -174,26 +174,26 @@ public class Cubik {
     public void turnCubik(boolean isVertical, boolean isUntoYourself) {
         if (isUntoYourself) {
             if (isVertical){
-                ArrayList<ArrayList<Integer>> buffer = new ArrayList<>(bottomSide.getSide());
-                bottomSide.setSide(sideC.getSide());
-                sideC.setSide(topSide.getSide());
-                topSide.setSide(sideA.getSide());
-                sideA.setSide(buffer);
-                sideD.moveSideByCircle();
-                sideB.moveSideByCircle(true);
+                ArrayList<ArrayList<Integer>> buffer = new ArrayList<>(sideB.getSide());
+                sideB.setSide(top.getSide());
+                top.setSide(sideD.getSide());
+                sideD.setSide(bottom.getSide());
+                bottom.setSide(buffer);
+                sideA.moveSideByCircle();
+                sideC.moveSideByCircle(true);
             } else {
-                ArrayList<ArrayList<Integer>> buffer = new ArrayList<>(bottomSide.getSide());
-                bottomSide.setSide(sideB.getSide());
+                ArrayList<ArrayList<Integer>> buffer = new ArrayList<>(sideB.getSide());
+                sideB.setSide(sideC.getSide());
 
                 for (int i = 0; i < size; i++) {
-                    sideB.setLine(false, i, topSide.getLine(false, size - i));
+                    sideC.setLine(false, i, sideD.getLine(false, size - i));
                 }
 
                 for (int i = 0; i < size; i++) {
-                    topSide.setLine(false, i, topSide.getLine(false, size - i));
+                    sideD.setLine(false, i, sideD.getLine(false, size - i));
                 }
 
-                sideD.setSide(buffer);
+                sideA.setSide(buffer);
             }
         } else turnCubik(isVertical);
     }
@@ -201,9 +201,11 @@ public class Cubik {
     private void shufle() {
         Random randomRow = new Random();
         Random randomVertical = new Random();
-        Random randomUnto = new Random();
         for (int i = 0; i < 10; i++) {
-            moveLine(randomRow.nextInt(size), randomVertical.nextBoolean(), randomUnto.nextBoolean());
+            if (i % 2 == 0)
+                moveLine(randomRow.nextInt(size) + 1);
+            else
+                moveLine(randomRow.nextInt(size) + 1, true);
         }
     }
 
